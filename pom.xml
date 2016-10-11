@@ -92,6 +92,7 @@
         <directory>${basedir}/src/main/resources</directory>
         <excludes>
           <exclude>*.copyarea.db</exclude>
+          <exclude>placeholder</exclude>
         </excludes>
       </resource>
     </resources>
@@ -155,6 +156,7 @@
             <excludes>
               <exclude>**/*.keep</exclude>
               <exclude>**/*.bak</exclude>
+              <exclude>**/placeholder</exclude>
             </excludes>
           </configuration>
           <executions>
