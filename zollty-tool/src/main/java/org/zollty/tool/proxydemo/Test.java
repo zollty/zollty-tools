@@ -2,7 +2,7 @@ package org.zollty.tool.proxydemo;
 
 import java.lang.reflect.Proxy;
 
-import org.zollty.util.ArrayUtils;
+import org.jretty.util.ArrayUtils;
 
 /**
  * 将我的MyService实例对象转为EchoService对象 ，并调用其$echo方法

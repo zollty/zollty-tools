@@ -2,7 +2,7 @@ package org.zollty.tool;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.zollty.util.RandomUtils;
+import org.jretty.util.RandomUtils;
 
 public class CommonToolsTests {
 

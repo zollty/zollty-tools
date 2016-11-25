@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-import org.zollty.util.FileUtils;
+import org.jretty.util.FileUtils;
 
 public class MavenInstallJar {
 

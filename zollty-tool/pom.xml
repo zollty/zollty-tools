@@ -30,8 +30,13 @@
   <dependencies>
 
     <dependency>
-      <groupId>org.zollty</groupId>
-      <artifactId>zollty-log</artifactId>
+      <groupId>org.jretty</groupId>
+      <artifactId>jretty-log</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.jretty</groupId>
+      <artifactId>jretty-util</artifactId>
     </dependency>
 
     <!-- Servlet -->
@@ -40,12 +45,6 @@
       <artifactId>servlet-api</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>org.zollty</groupId>
-      <artifactId>zollty-util</artifactId>
-    </dependency>
-    
-    
     <!-- Kafka -->
     <dependency>
 	  <groupId>org.apache.kafka</groupId>
@@ -67,8 +66,8 @@
     </dependency>
 
     <dependency>
-      <groupId>org.zollty</groupId>
-      <artifactId>zollty-tesper</artifactId>
+      <groupId>org.jretty</groupId>
+      <artifactId>tesper</artifactId>
     </dependency>
 
   </dependencies>
