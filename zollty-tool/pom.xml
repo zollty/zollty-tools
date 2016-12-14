@@ -45,20 +45,6 @@
       <artifactId>servlet-api</artifactId>
     </dependency>
 
-    <!-- Kafka -->
-    <dependency>
-	  <groupId>org.apache.kafka</groupId>
-	  <artifactId>kafka-clients</artifactId>
-	  <version>0.9.0.1</version>
-	</dependency>
-	
-	<dependency>
-	  <groupId>org.apache.kafka</groupId>
-	  <artifactId>kafka_2.11</artifactId>
-	  <version>0.9.0.1</version>
-	</dependency>
-    
-
     <!-- For Test -->
     <dependency>
       <groupId>junit</groupId>
