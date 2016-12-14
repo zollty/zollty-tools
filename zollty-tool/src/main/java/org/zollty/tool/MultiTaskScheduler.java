@@ -27,17 +27,25 @@ public class MultiTaskScheduler extends Thread {
      */
     private volatile boolean enabled = true;
 
-    private static final long CHECK_INTERVAL = 500L; // 0.5秒检查一次
+    private static final int CHECK_INTERVAL = 500; // 0.5秒检查一次
 
     private ExecutorService executor;
 
     private List<TimedTask> tasks = new LinkedList<TimedTask>();
+    
+    private int checkInterval;
 
     public MultiTaskScheduler() {
+        checkInterval = CHECK_INTERVAL;
     }
 
     public MultiTaskScheduler(List<TimedTask> tasks) {
         this.setTasks(tasks);
+    }
+    
+    public MultiTaskScheduler(List<TimedTask> tasks, int checkInterval) {
+        this.setTasks(tasks);
+        this.checkInterval = checkInterval;
     }
 
     public boolean addTask(TimedTask task) {
@@ -86,14 +94,10 @@ public class MultiTaskScheduler extends Thread {
                     tb.setBegin(now);
                 }
             }
-            ThreadUtils.sleepThread(CHECK_INTERVAL);
+            ThreadUtils.sleepThread(checkInterval);
         }
     }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
+    
     public void shutdown() {
         LOG.info(MultiTaskScheduler.class.getSimpleName() + " Thread Stop...");
         this.enabled = false;
@@ -103,6 +107,18 @@ public class MultiTaskScheduler extends Thread {
         } catch (Exception e) {
             LOG.warn(e);
         }
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public int getCheckInterval() {
+        return checkInterval;
+    }
+
+    public void setCheckInterval(int checkInterval) {
+        this.checkInterval = checkInterval;
     }
 
 }
