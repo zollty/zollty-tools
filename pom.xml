@@ -41,16 +41,24 @@
         <groupId>org.jretty</groupId>
         <artifactId>jretty-log</artifactId>
         <version>1.2.0</version>
-        <!-- <scope>system</scope>
-        <systemPath>${basedir}/../lib/jretty-log-1.2.0.jar</systemPath> -->
+        <scope>system</scope>
+        <systemPath>${basedir}/../lib/jretty-log-1.2.0.jar</systemPath>
       </dependency>
 
       <dependency>
         <groupId>org.jretty</groupId>
         <artifactId>jretty-util</artifactId>
         <version>1.2.0</version>
-        <!-- <scope>system</scope>
-        <systemPath>${basedir}/../lib/jretty-util-1.2.0.jar</systemPath> -->
+        <scope>system</scope>
+        <systemPath>${basedir}/../lib/jretty-util-1.2.0.jar</systemPath>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.jretty</groupId>
+        <artifactId>jretty-util-web</artifactId>
+        <version>1.1.0</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/../lib/jretty-util-web-1.1.0.jar</systemPath>
       </dependency>
 
       <!-- Servlet -->
@@ -73,8 +81,8 @@
         <groupId>org.jretty</groupId>
         <artifactId>tesper</artifactId>
         <version>1.0.0</version>
-        <!-- <scope>system</scope>
-        <systemPath>${basedir}/../lib/zollty-tesper-1.0.jar</systemPath> -->
+        <scope>system</scope>
+        <systemPath>${basedir}/../lib/tesper-1.0.0.jar</systemPath>
       </dependency>
 
     </dependencies>
