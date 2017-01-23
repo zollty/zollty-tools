@@ -39,6 +39,23 @@
       <artifactId>jretty-util</artifactId>
     </dependency>
 
+    <!-- jdk1.6以上自带了org.w3c.dom.*，引入这些类会造成冲突，详见http://tech.it168.com/a2009/1231/831/000000831972_all.shtml -->
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>xerces</groupId>
+          <artifactId>xmlParserAPIs</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
     <!-- Servlet -->
     <dependency>
       <groupId>javax.servlet</groupId>
