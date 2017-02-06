@@ -26,20 +26,19 @@ import org.xml.sax.SAXException;
 public class XmlUtils {
 
     private static final Logger LOG = LogFactory.getLogger();
-    public static final String W3C_XML_SCHEMA_INSTANCE_NS_URI = "http://www.w3.org/2001/XMLSchema-instance";    
+    public static final String W3C_XML_SCHEMA_INSTANCE_NS_URI = "http://www.w3.org/2001/XMLSchema-instance";
     public static SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-    
-    private XmlUtils(){
+
+    private XmlUtils() {
     }
-    
+
     /**
      * 
      * @param xmlStr
      * @param xsdSource
      * @return 调用XmlSaxErrorHandler的isSuccess方法和getErrorMsg获取解析结果
      */
-    public static XmlSaxErrorHandler xmlValidator(String xmlStr,
-            Source xsdSource) {
+    public static XmlSaxErrorHandler xmlValidator(String xmlStr, Source xsdSource) {
         XmlSaxErrorHandler errorHandler = new XmlSaxErrorHandler();
         if (StringUtils.isBlank(xmlStr)) {
             errorHandler.setSuccess(false);
@@ -55,14 +54,14 @@ public class XmlUtils {
             errorHandler.setSuccess(false);
             errorHandler.setErrorMsg("无法进行utf-8编码：" + e.getMessage());
             return errorHandler;
-        }finally{
+        } finally {
             if (null != xmlInStream) {
                 try {
                     xmlInStream.close();
                 } catch (IOException e) {
                     LOG.error(e);
                 }
-            }       
+            }
         }
     }
 
@@ -88,8 +87,7 @@ public class XmlUtils {
      * @param xsdSource
      * @return 调用XmlSaxErrorHandler的isSuccess方法和getErrorMsg获取解析结果
      */
-    public static XmlSaxErrorHandler xmlValidator(Source xmlSource,
-            Source xsdSource) {
+    public static XmlSaxErrorHandler xmlValidator(Source xmlSource, Source xsdSource) {
 
         XmlSaxErrorHandler errorHandler = new XmlSaxErrorHandler();
         try {
@@ -100,8 +98,7 @@ public class XmlUtils {
 
         } catch (SAXException e) {
             errorHandler.setSuccess(false);
-            errorHandler.setErrorMsg("无法验证xml文件，可能是xml的基本格式不正确！具体原因："
-                    + e.getMessage());
+            errorHandler.setErrorMsg("无法验证xml文件，可能是xml的基本格式不正确！具体原因：" + e.getMessage());
         } catch (IOException e) {
             errorHandler.setSuccess(false);
             errorHandler.setErrorMsg("无法验证xml文件，IO异常，具体原因：" + e.getMessage());
