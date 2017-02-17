@@ -13,13 +13,17 @@
 package org.zollty.tool.file;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.jretty.log.LogFactory;
 import org.jretty.log.Logger;
 import org.jretty.util.FileUtils;
+import org.jretty.util.IOUtils;
 import org.jretty.util.StringUtils;
 import org.jretty.util.match.ZolltyPathMatcher;
 
@@ -32,6 +36,28 @@ import org.jretty.util.match.ZolltyPathMatcher;
 public class FileTools {
 
     private static final Logger LOG = LogFactory.getLogger(FileTools.class);
+    
+    /**
+     * 通过java.nio.channels.FileChannel的方式 拷贝大文件（至少几个G级别的）
+     * @param source
+     * @param dest
+     * @throws IOException
+     */
+    public static void copyFileByChannel(File source, File dest) throws IOException {
+        FileChannel inputChannel = null;
+        FileChannel outputChannel = null;
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+        try {
+            fis = new FileInputStream(source);
+            inputChannel = fis.getChannel();
+            fos = new FileOutputStream(dest);
+            outputChannel = fos.getChannel();
+            outputChannel.transferFrom(inputChannel, 0, inputChannel.size());
+        } finally {
+            IOUtils.closeIO(fis, fos);
+        }
+    }
 
     /**
      * 复制文件夹，默认会记录DEBUG级别的LOG
