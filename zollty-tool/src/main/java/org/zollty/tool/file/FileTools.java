@@ -38,7 +38,8 @@ public class FileTools {
     private static final Logger LOG = LogFactory.getLogger(FileTools.class);
     
     /**
-     * 通过java.nio.channels.FileChannel的方式 拷贝大文件（至少几个G级别的）
+     * 通过java.nio.channels.FileChannel的方式 拷贝大文件
+     * （至少几个G级别的，实际测试结果 性能也差不多，几乎没什么提高）
      * @param source
      * @param dest
      * @throws IOException
@@ -93,6 +94,9 @@ public class FileTools {
         (new File(targetDir)).mkdirs();
         // 获取源文件夹当前下的文件或目录
         File[] file = (new File(sourceDir)).listFiles();
+        if (file == null) {
+            return;
+        }
 
         List<ZolltyPathMatcher> discardMather = new ArrayList<ZolltyPathMatcher>();
         if (patterns != null) {

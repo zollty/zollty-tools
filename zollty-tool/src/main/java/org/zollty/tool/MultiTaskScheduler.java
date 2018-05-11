@@ -89,7 +89,7 @@ public class MultiTaskScheduler extends Thread {
             long now = System.currentTimeMillis();
             for (TimedTask tb : tasks) {
                 if (now - tb.getBegin() > tb.getInterval()) {
-                    LOG.info("start to execute [{}] thread, interval time {}!", tb.getName(), tb.getInterval());
+                    LOG.debug("start to execute [{}] thread, interval time {}!", tb.getName(), tb.getInterval());
                     executor.execute(tb.getTask());
                     tb.setBegin(now);
                 }

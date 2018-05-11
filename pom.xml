@@ -30,7 +30,7 @@
   <!-- CONST -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java-version>1.7</java-version>
+    <java-version>1.8</java-version>
   </properties>
 
   <!-- DEPENDENCIES Version Management -->
@@ -48,9 +48,9 @@
       <dependency>
         <groupId>org.jretty</groupId>
         <artifactId>jretty-util</artifactId>
-        <version>1.2.0</version>
-        <scope>system</scope>
-        <systemPath>${basedir}/../lib/jretty-util-1.2.0.jar</systemPath>
+        <version>1.4.0</version>
+        <!-- <scope>system</scope>
+        <systemPath>${basedir}/../lib/jretty-util-1.2.0.jar</systemPath> -->
       </dependency>
       
       <dependency>
