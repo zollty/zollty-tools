@@ -1,4 +1,4 @@
-package org.zollty.tool.xml;
+package org.zollty.tool;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,10 +8,12 @@ import java.io.Reader;
 import org.jretty.util.IOUtils;
 import org.jretty.util.ResourceUtils;
 import org.junit.Test;
+import org.zollty.tool.xml.XmlSaxErrorHandler;
+import org.zollty.tool.xml.XmlUtils;
 
 public class XmlUtilsTest {
 
-//    @Test
+    @Test
     public void testXmlValidator() throws IOException {
         Reader in = new BufferedReader(new InputStreamReader(
                 ResourceUtils.getClassPathResource("classpath:org/zollty/tool/xml/bean-test.xml").getInputStream()));

@@ -21,11 +21,11 @@
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <artifactId>zollty-tool</artifactId>
+  <artifactId>dbdata-to-sqlite</artifactId>
   <packaging>jar</packaging>
   <version>1.0.0-SNAPSHOT</version>
-  <name>zollty-tool</name>
-  <description>Tools library. See the parent pom for more infomation.</description>
+  <name>dbdata-to-sqlite</name>
+  <description>export db data to sqlite.</description>
 
   <dependencies>
 
@@ -35,44 +35,25 @@
     </dependency>
     
     <dependency>
-      <groupId>org.jretty</groupId>
-      <artifactId>jretty-core</artifactId>
+      <groupId>org.zollty</groupId>
+      <artifactId>zollty-dbk</artifactId>
+      <version>3.2.18</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/zollty-dbk-3.2.18.jar</systemPath>
     </dependency>
-
-    <!-- jdk1.6以上自带了org.w3c.dom.*，引入这些类会造成冲突，详见http://tech.it168.com/a2009/1231/831/000000831972_all.shtml -->
+    
     <dependency>
-      <groupId>dom4j</groupId>
-      <artifactId>dom4j</artifactId>
-      <version>1.6.1</version>
-      <exclusions>
-        <exclusion>
-          <groupId>xml-apis</groupId>
-          <artifactId>xml-apis</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>xerces</groupId>
-          <artifactId>xmlParserAPIs</artifactId>
-        </exclusion>
-      </exclusions>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.45</version>
     </dependency>
-
-    <!-- Servlet -->
+    
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-    </dependency>
-
-    <!-- For Test -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jretty</groupId>
-      <artifactId>tesper</artifactId>
-      <scope>test</scope>
+      <groupId>sqlitejdbc</groupId>
+      <artifactId>sqlitejdbc</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/sqlitejdbc-v033-nested.jar</systemPath>
     </dependency>
 
   </dependencies>

@@ -3,7 +3,7 @@
  */
 package org.zollty.tool;
 
-import org.zollty.tool.cache.JrettyCache;
+import org.jretty.util.JrettyCache;
 
 /**
  * 

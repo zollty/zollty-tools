@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.jretty.log.LogFactory;
 import org.jretty.log.Logger;
-import org.zollty.tool.cache.JrettyCache;
+import org.jretty.util.JrettyCache;
 
 /**
  * 
@@ -33,7 +33,7 @@ public class CacheManagerTest2 {
                         LOG.error("-----------log.............");
                     } 
                 }
-            }, 100));
+            }, 100, "cache.putIfAbsent"));
         }
         
         MultiTaskScheduler she = new MultiTaskScheduler();
