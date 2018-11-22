@@ -1,6 +1,3 @@
-/**
- * 
- */
 package org.zollty.tool.dbdata.tofile;
 
 import java.io.BufferedWriter;

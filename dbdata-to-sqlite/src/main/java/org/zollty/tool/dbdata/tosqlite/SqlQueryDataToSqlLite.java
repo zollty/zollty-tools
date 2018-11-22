@@ -1,6 +1,3 @@
-/**
- * 
- */
 package org.zollty.tool.dbdata.tosqlite;
 
 import java.sql.Connection;

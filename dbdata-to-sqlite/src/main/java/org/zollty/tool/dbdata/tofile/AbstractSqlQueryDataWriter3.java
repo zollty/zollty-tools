@@ -12,10 +12,6 @@ import javax.sql.DataSource;
 
 import org.zollty.dbk.support.JdbcUtils;
 
-//import com.travelsky.b2bplatform.reporteng.common.DBTools;
-//import com.travelsky.report.external.ReportUtils;
-//import com.travelsky.report.external.csv.Line;
-
 public abstract class AbstractSqlQueryDataWriter3 {
     
     abstract DataSource getDataSource();

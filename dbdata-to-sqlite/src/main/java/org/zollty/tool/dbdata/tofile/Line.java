@@ -1,10 +1,3 @@
-/*
- * @(#)Line.java
- * Travelsky Report Engine (TRE) Source Code, Version 1.0.0
- * Author(s): 
- * Zollty Tsou (http://blog.csdn.net/zollty, zouty@travelsky.com)
- * Copyright (C) 2013-2014 Travelsky Technology. All rights reserved.
- */
 package org.zollty.tool.dbdata.tofile;
 
 import java.util.ArrayList;
