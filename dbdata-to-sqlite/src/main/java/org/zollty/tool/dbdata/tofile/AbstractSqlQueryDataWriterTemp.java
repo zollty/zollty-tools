@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 import org.zollty.dbk.support.JdbcUtils;
 
-public abstract class AbstractSqlQueryDataWriter3 {
+public abstract class AbstractSqlQueryDataWriterTemp {
     
     abstract DataSource getDataSource();
 
@@ -69,16 +69,6 @@ public abstract class AbstractSqlQueryDataWriter3 {
     }
 
     abstract void writeTitleAndHead(BufferedWriter outWrite) throws IOException;
-//    {
-//        StringBuffer outStrb = new StringBuffer();
-//        outStrb.append(Line.newLine(7).append("航段销售排行"));
-//        outStrb.append(Line.newLine(7).append("营业部范围").append("xxx"));
-//        outStrb.append(Line.newLine(7).append("出票日期范围").append("xxx"));
-//        outStrb.append(Line.newLine(7));
-//        outStrb.append(Line.newLine(7));
-//
-//        outWrite.write(outStrb.toString());
-//    }
 
     abstract void setParams(PreparedStatement pstmt);
 
