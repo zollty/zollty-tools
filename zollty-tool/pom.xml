@@ -36,7 +36,7 @@
     
     <dependency>
       <groupId>org.jretty</groupId>
-      <artifactId>jretty-core</artifactId>
+      <artifactId>jretty-core-starter-all</artifactId>
     </dependency>
 
     <!-- jdk1.6以上自带了org.w3c.dom.*，引入这些类会造成冲突，详见http://tech.it168.com/a2009/1231/831/000000831972_all.shtml -->
@@ -60,6 +60,32 @@
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
+    </dependency>
+    
+    <!-- http-client -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.2</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpmime</artifactId>
+      <version>4.5.2</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>fluent-hc</artifactId>
+      <version>4.5.2</version>
+    </dependency>
+    
+    <!-- async httpclient -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpasyncclient</artifactId>
+      <version>4.1.2</version>
     </dependency>
 
     <!-- For Test -->

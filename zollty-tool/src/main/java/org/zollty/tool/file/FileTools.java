@@ -12,18 +12,23 @@
  */
 package org.zollty.tool.file;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.jretty.log.LogFactory;
 import org.jretty.log.Logger;
 import org.jretty.util.FileUtils;
 import org.jretty.util.IOUtils;
+import org.jretty.util.NestedRuntimeException;
 import org.jretty.util.StringUtils;
 import org.jretty.util.match.ZolltyPathMatcher;
 
@@ -132,6 +137,44 @@ public class FileTools {
                 copyDirectory(dir1, dir2, patterns, isDiscard, isLog);
             }
         }
+    }
+    
+    /**
+     * 按行解析文本文件，根据正则表达式${pattern}参数进行过滤(isDiscard=true时)或者包含(isDiscard=false时)
+     * @param in 来源文件流
+     * @param charSet 字符编码
+     * @param pattern 正则表达式
+     * @param isDiscard 等于true时为“排除模式”，为false则为“包含模式” 
+     * @param isLog 是否记录日志（DEBUG级别）
+     */
+    public static List<String> getTextFileContent(InputStream in, String charSet, String pattern,
+            boolean isDiscard, boolean isLog) {
+
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new InputStreamReader(in, StringUtils.decideCharSet(charSet)));
+            String buf = null;
+            List<String> ret = new ArrayList<String>();
+            while (null != (buf = br.readLine())) {
+
+                // isDiscard = true 时为“排除模式”，即被匹配到的path，不会被拷贝。
+                if (isDiscard ? !Pattern.matches(pattern, buf.trim()) : Pattern.matches(pattern, buf.trim())) {
+
+                    ret.add(buf);
+                    
+                    if (isLog)
+                        LOG.debug(buf);
+
+                }
+
+            }
+            return ret;
+        } catch (Exception e) {
+            throw new NestedRuntimeException(e);
+        } finally {
+            IOUtils.closeIO(br);
+        }
+
     }
     
     public static void searchAllFileOrDir(List<String> result, String rootDir, String[] patterns){
