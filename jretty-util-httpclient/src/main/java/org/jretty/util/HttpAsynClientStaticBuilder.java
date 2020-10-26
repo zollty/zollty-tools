@@ -10,7 +10,6 @@ import org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor;
 import org.apache.http.impl.nio.reactor.IOReactorConfig;
 import org.apache.http.nio.reactor.ConnectingIOReactor;
 import org.apache.http.nio.reactor.IOReactorException;
-import org.jretty.util.NestedRuntimeException;
 
 /**
  * Create an HttpClient with the given custom dependencies and configuration. 参见build方法
