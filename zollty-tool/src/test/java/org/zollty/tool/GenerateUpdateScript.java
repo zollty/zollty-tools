@@ -25,7 +25,7 @@ public class GenerateUpdateScript {
         sb.append("@echo off").append(System.lineSeparator());
         sb.append("taskkill /f /t /im javaw.exe").append(System.lineSeparator());
         sb.append("rd /s /q \"").append(getPath(FileUtils.class)).append("\"").append(System.lineSeparator());
-        writeStr2(currPath + "/" + "update.bat", sb.toString(), Const.UTF_8);
+        UT.File.writeStr2File(currPath + "/" + "update.bat", sb.toString(), Const.UTF_8, false);
         open(currPath);
         System.out.println("请执行 update.bat");
     }
@@ -43,21 +43,6 @@ public class GenerateUpdateScript {
     
     
     
-    
-    
-    
-    public static void writeStr2(String fileFullPath, String str, String charSet) {
-        BufferedWriter out = null;
-        try {
-            out = UT.File.getBufferedWriter(fileFullPath, false, charSet);
-            out.write(str);
-            out.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            UT.IO.closeIO(out);
-        }
-    }
 
     public static String getPath(Class clazz) {
         String path = clazz.getProtectionDomain().getCodeSource().getLocation().getPath();
